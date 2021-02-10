@@ -1,12 +1,14 @@
 import { Form, Input, Button } from 'antd';
 import axios from 'axios';
+import { useHistory} from 'react-router-dom';
 
 const CustomForm = ({ method, articleID }) => {
+    const history = useHistory();
+
     const onFinish = (values) => {
         const title = values.title;
         const content = values.content;
         const reqType = values.type;
-        console.log(reqType, articleID);
         
         switch (reqType) {
             case 'post':
@@ -15,7 +17,7 @@ const CustomForm = ({ method, articleID }) => {
                     content: content
                 })
                     .then((response) => {
-                        console.log(response);
+                        history.go();
                     })
                     .catch(err => console.error(err));
                 break;
@@ -25,7 +27,7 @@ const CustomForm = ({ method, articleID }) => {
                     content: content
                 })
                     .then((response) => {
-                        console.log(response);
+                        history.go();
                     })
                     .catch(err => console.err(err));
                 break;
