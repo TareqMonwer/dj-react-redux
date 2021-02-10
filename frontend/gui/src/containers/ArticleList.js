@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useState, useEffect } from 'react';
 import Articles from '../components/Article';
+import CustomForm from '../components/CustomForm';
 
 const ArticleList = () => {
     const [articles, setArticles] = useState([]);
@@ -13,7 +14,11 @@ const ArticleList = () => {
     }, [articles.length])
 
     return (
-        <Articles data={articles} />
+        <div>
+            <Articles data={articles} />
+            <h2>Publish New Article</h2>
+            <CustomForm method="post" />
+        </div>
     );
 }
 

@@ -2,6 +2,7 @@ import axios from 'axios';
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { Card } from 'antd';
+import CustomForm from '../components/CustomForm';
 
 
 const ArticleDetails = (props) => {
@@ -13,12 +14,17 @@ const ArticleDetails = (props) => {
             .then(res => {
                 setArticle(res.data);
             })
-    }, [])
+    }, [articleID])
 
     return (
-        <Card title={article.title}>
-            <p>{article.content}</p>
-        </Card>
+        <div>
+            <Card title={article.title}>
+                <p>{article.content}</p>
+            </Card>
+            <Card title="Edit Article">
+                <CustomForm method="put" articleID={ articleID } />
+            </Card>
+        </div>
     );
 }
 

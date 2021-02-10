@@ -18,7 +18,7 @@ const Articles = (props) => {
             size="large"
             pagination={{
                 onChange: page => {
-                    console.log(page);
+                    console.log(page, 'page');
                 },
                 pageSize: 3,
             }}
