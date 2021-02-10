@@ -1,14 +1,17 @@
+import { BrowserRouter as Router } from 'react-router-dom';
+import BaseRouter from './routes';
 import "antd/dist/antd.css";
 import CustomLayout from './containers/Layout';
-import ArticleList from './containers/ArticleList';
 
 
 function App() {
   return (
     <div className="">
-      <CustomLayout>
-        <ArticleList />
-      </CustomLayout>
+      <Router>
+        <CustomLayout>
+          <BaseRouter />
+        </CustomLayout>
+      </Router>
     </div>
   );
 }
